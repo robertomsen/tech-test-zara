@@ -1,0 +1,28 @@
+#podcast__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#podcast__filter {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 80px;
+}
+
+#podcast__filter p {
+    background-color: rgb(61, 81, 194);
+    color: white;
+    border-radius: 30px;
+    padding: 1px 5px 1px 5px;
+}
+
+#podcast__filter input {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(211, 211, 211);
+    margin-left: 10px;
+    height: 20px;
+    border-radius: 5px;
+    width: 20%;
+}

@@ -1,0 +1,26 @@
+.podcastCard__item {
+    width: 15%;
+    margin: 30px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 9px 4px 27px 1px #bebebe;
+    padding: 10px;
+}
+
+.podcastCard__item img {
+    width: 100px;
+    padding-top: 10px;
+    border-radius: 1000px;
+}
+
+.podcastCard__item h3 {
+    text-overflow: ellipsis;
+}
+
+.podcastCard__img {
+    height: 50%;
+    padding-bottom: 15px;
+}
