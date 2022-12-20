@@ -24,3 +24,11 @@
     height: 50%;
     padding-bottom: 15px;
 }
+
+.podcastCard__button {
+    text-decoration: none;
+    color: white;
+    background-color: rgb(103, 103, 226);
+    padding: 3px 8px 3px 8px;
+    border-radius: 7px;
+}
