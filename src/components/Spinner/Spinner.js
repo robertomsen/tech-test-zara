@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
 import './Spinner.css';
 
-const Spinner = () => {
-    return (
-        <div class='spinner'></div>
-    )
+function Spinner() {
+  return (
+    <div className="spinner" />
+  );
 }
 
 export default Spinner;
