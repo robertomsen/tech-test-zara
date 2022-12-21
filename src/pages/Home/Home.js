@@ -1,11 +1,13 @@
+/* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 import PodcastCard from '../../components/PodcastCard/PodcastCard';
 import './Home.css';
 
-function Home() {
+function Home({ setLoadingNav }) {
   const [data, setData] = useState([]);
 
   useEffect(() => {
+    setLoadingNav(true);
     async function fetchData() {
       const lastFetchTime = localStorage.getItem('lastFetchTime');
       if (
@@ -15,9 +17,9 @@ function Home() {
       ) {
         const storedData = localStorage.getItem('apiData');
         if (storedData) {
-          console.log(JSON.parse(storedData));
           setData(JSON.parse(storedData));
         }
+        setLoadingNav(false);
       } else {
         const response = await fetch(
           'https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json'
@@ -27,15 +29,14 @@ function Home() {
         const JSONParsedTwo = JSON.parse(JSONParsedData);
 
         setData(JSONParsedTwo.feed.entry);
-        console.log(JSONParsedTwo);
         localStorage.setItem(
           'apiData',
           JSON.stringify(JSONParsedTwo.feed.entry)
         );
         localStorage.setItem('lastFetchTime', Date.now());
+        setLoadingNav(false);
       }
     }
-
     fetchData();
   }, []);
 

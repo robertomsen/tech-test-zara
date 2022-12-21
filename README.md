@@ -1,6 +1,15 @@
-### Prueba tecnica ZARA - Frontend)
+### Prueba tecnica ZARA - (Frontend)
 
 Para el desarrollo de la prueba, se ha utilizado React 18.
+
+Funcionalidades:
+
+- Listado de podcast
+- Listado de episodios y contador en tabla y información sobre el podcast (titulo, descripcion, autor e imagen)
+- Nombre del episodio, descripción y botón para lanzar el reproductor
+- Reproductor fijo (no se destruye al cambiar entre vistas)
+- Buscador de podcast por nombre y autor (con numero restante)
+- Spinner cuando esta cargando la vista
 
 Cambios a futuro (por falta de tiempo):
 

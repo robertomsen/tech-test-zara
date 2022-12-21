@@ -1,10 +1,11 @@
+/* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react';
 import './Podcast.css';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import Spinner from '../../components/Spinner/Spinner';
 
-function Podcast() {
+function Podcast({ setLoadingNav }) {
   const { id } = useParams();
   const [podcastData, setPodcastData] = useState([]);
   const [podcastTracks, setPodcastTracks] = useState([]);
@@ -12,6 +13,7 @@ function Podcast() {
   const [loadingTracks, setLoadingTracks] = useState(true);
 
   useEffect(() => {
+    setLoadingNav(true);
     async function fetchData() {
       const response = await fetch(
         `https://api.allorigins.win/get?url=${encodeURIComponent(
@@ -22,6 +24,7 @@ function Podcast() {
       const JSONParsedData = JSON.parse(json.contents);
       setPodcastTracks(JSONParsedData.results);
       setLoadingTracks(false);
+      setLoadingNav(false);
     }
 
     const storedData = localStorage.getItem('apiData');
@@ -95,7 +98,7 @@ function Podcast() {
             <div id="podcast__playlist--episodes">
               <h3>
                 Episodes:
-                {podcastTracks.length}
+                {` ${podcastTracks.length}`}
               </h3>
             </div>
             <div id="podcast__playlist--list">

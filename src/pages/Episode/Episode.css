@@ -27,12 +27,12 @@
     border-radius: 10px;
 }
 
-#podcast__playlist {
+#episode__description {
     width: 50%;
     height: 600px;
 }
 
-#podcast__playlist--episodes {
+#episode__description--episode {
     width: 100%;
     padding: 3px 10px 3px 15px;
     box-shadow: 9px 4px 27px 1px #bebebe;
@@ -40,7 +40,11 @@
     border-radius: 5px;
 }
 
-#podcast__playlist--loading {
+#episode__description--episode p {
+    font-style: italic;
+}
+
+#episode__description--loading {
     width: 100%;
     box-shadow: 9px 4px 27px 1px #bebebe;
     border-radius: 5px;
@@ -51,11 +55,11 @@
     padding: 20px;
 }
 
-#podcast__playlist--loading h4 {
+#episode__description--loading h4 {
     color:rgb(161, 161, 161);
 }
 
-#podcast__playlist--list {
+#episode__description--list {
     width: 100%;
     padding: 3px 10px 3px 15px;
     box-shadow: 9px 4px 27px 1px #bebebe;
@@ -63,20 +67,31 @@
     border-radius: 5px;
 }
 
-#podcast__playlist--list table {
+#episode__description--list table {
     width: 100%;
     padding: 20px;
 }
 
-#podcast__playlist--list table tr:nth-child(odd) {
+#episode__description--list table tr:nth-child(odd) {
     background-color: rgb(226, 226, 226);
 }
 
-#podcast__playlist--list table th {
+#episode__description--list table th {
     text-align: left;
 }
 
-.podcast__playlist--link {
+.episode__description--link {
     text-decoration: none;
     color: rgb(103, 103, 226);
+}
+
+.episode__description--button {
+    text-decoration: none;
+    color: white;
+    background-color: rgb(103, 103, 226);
+    width: 100px;
+    height: 30px;
+    border-radius: 7px;
+    border: 0;
+    cursor: pointer;
 }
