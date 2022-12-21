@@ -12,6 +12,7 @@
     flex-direction: column;
     align-items: center;
     box-shadow: 9px 4px 27px 1px #bebebe;
+    border-radius: 5px;
 }
 
 #podcast__info hr {
@@ -35,7 +36,23 @@
     width: 100%;
     padding: 3px 10px 3px 15px;
     box-shadow: 9px 4px 27px 1px #bebebe;
-    margin-bottom: 15px;;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+#podcast__playlist--loading {
+    width: 100%;
+    box-shadow: 9px 4px 27px 1px #bebebe;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+}
+
+#podcast__playlist--loading h4 {
+    color:rgb(161, 161, 161);
 }
 
 #podcast__playlist--list {
@@ -43,7 +60,7 @@
     padding: 3px 10px 3px 15px;
     box-shadow: 9px 4px 27px 1px #bebebe;
     margin-bottom: 15px;
-
+    border-radius: 5px;
 }
 
 #podcast__playlist--list table {

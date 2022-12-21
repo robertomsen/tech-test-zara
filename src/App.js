@@ -20,10 +20,10 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route path="/podcast/:id">
+          <Route exact path="/podcast/:id">
             <Podcast />
           </Route>
-          <Route path="/podcast/:id/episode/:episodeId">
+          <Route exact path="/podcast/:id/episode/:episodeId">
             <Episode />
           </Route>
         </Switch>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import './Podcast.css';
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
+import Spinner from "../../components/Spinner/Spinner";
 
 
 const Podcast = () => {
@@ -19,6 +20,7 @@ const Podcast = () => {
             const JSONParsedData = JSON.parse(json.contents);
             console.log(JSONParsedData['results']);
             setPodcastTracks(JSONParsedData['results']);
+            setLoadingTracks(false);
         }
 
         const storedData = localStorage.getItem('apiData');
@@ -79,26 +81,32 @@ const Podcast = () => {
                 </div>
             </div>
             <div id="podcast__playlist">
-                { }
-                <div id="podcast__playlist--episodes">
-                    <h3>Episodes: {podcastTracks.length}</h3>
-                </div>
-                <div id="podcast__playlist--list">
-                    <table>
-                        <thead>
-                            <th>Title</th>
-                            <th>Date</th>
-                            <th>Duration</th>
-                        </thead>
-                        {podcastTracks?.map((el) => (
-                            <tr>
-                                <td><Link className="podcast__playlist--link" to={'/'}>{el.trackName}</Link></td>
-                                <td>{formatDate(el.releaseDate)}</td>
-                                <td>{formatTime(el.trackTimeMillis)}</td>
-                            </tr>
-                        ))}
-                    </table>
-                </div>
+                {loadingTracks === true ? <div id="podcast__playlist--loading">
+                    <Spinner />
+                    <h4>Loading episodes...</h4>
+                </div> : (
+                    <>
+                        <div id="podcast__playlist--episodes">
+                            <h3>Episodes: {podcastTracks.length}</h3>
+                        </div><div id="podcast__playlist--list">
+                            <table>
+                                <thead>
+                                    <th>Title</th>
+                                    <th>Date</th>
+                                    <th>Duration</th>
+                                </thead>
+                                {podcastTracks?.map((el) => (
+                                    <tr>
+                                        <td><Link to={`/podcast/${id}/episode/${el.trackId}`} className="podcast__playlist--link">{el.trackName}</Link></td>
+                                        <td>{formatDate(el.releaseDate)}</td>
+                                        <td>{formatTime(el.trackTimeMillis)}</td>
+                                    </tr>
+                                ))}
+                            </table>
+                        </div>
+                    </>
+                )}
+
             </div>
         </div>
     )
