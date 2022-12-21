@@ -15,8 +15,8 @@ function Episode() {
     async function fetchData() {
       const response = await fetch(
         `https://api.allorigins.win/get?url=${encodeURIComponent(
-          `https://itunes.apple.com/lookup?id=${id}&media=podcast&entity=podcastEpisode&limit=100`,
-        )}`,
+          `https://itunes.apple.com/lookup?id=${id}&media=podcast&entity=podcastEpisode&limit=100`
+        )}`
       );
       const json = await response.json();
       const JSONParsedData = JSON.parse(json.contents);
@@ -28,7 +28,7 @@ function Episode() {
     const storedData = localStorage.getItem('apiData');
     const JSONParsedData = JSON.parse(storedData);
     const podcast = JSONParsedData.find(
-      (el) => el.id.attributes['im:id'] === id,
+      (el) => el.id.attributes['im:id'] === id
     );
     console.log(podcast);
     setPodcastData(podcast);
@@ -64,7 +64,7 @@ function Episode() {
     return newDate.toLocaleDateString('es-ES', {
       day: 'numeric',
       month: 'numeric',
-      year: 'numeric',
+      year: 'numeric'
     });
   };
   return (
@@ -74,11 +74,7 @@ function Episode() {
         <hr />
         <div id="podcast__info--name">
           <h3>{podcastData['im:name'].label}</h3>
-          <p>
-            by
-            {' '}
-            {podcastData['im:artist'].label}
-          </p>
+          <p>by {podcastData['im:artist'].label}</p>
         </div>
         <hr />
         <div id="podcast__info--description">
@@ -95,11 +91,7 @@ function Episode() {
         ) : (
           <>
             <div id="podcast__playlist--episodes">
-              <h3>
-                Episodes:
-                {' '}
-                {podcastTracks.length}
-              </h3>
+              <h3>Episodes: {podcastTracks.length}</h3>
             </div>
             <div id="podcast__playlist--list">
               <table>

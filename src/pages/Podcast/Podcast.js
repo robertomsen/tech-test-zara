@@ -15,8 +15,8 @@ function Podcast() {
     async function fetchData() {
       const response = await fetch(
         `https://api.allorigins.win/get?url=${encodeURIComponent(
-          `https://itunes.apple.com/lookup?id=${id}&media=podcast&entity=podcastEpisode&limit=100`,
-        )}`,
+          `https://itunes.apple.com/lookup?id=${id}&media=podcast&entity=podcastEpisode&limit=100`
+        )}`
       );
       const json = await response.json();
       const JSONParsedData = JSON.parse(json.contents);
@@ -27,7 +27,7 @@ function Podcast() {
     const storedData = localStorage.getItem('apiData');
     const JSONParsedData = JSON.parse(storedData);
     const podcast = JSONParsedData.find(
-      (el) => el.id.attributes['im:id'] === id,
+      (el) => el.id.attributes['im:id'] === id
     );
 
     setPodcastData(podcast);
@@ -58,7 +58,7 @@ function Podcast() {
     return newDate.toLocaleDateString('es-ES', {
       day: 'numeric',
       month: 'numeric',
-      year: 'numeric',
+      year: 'numeric'
     });
   };
 

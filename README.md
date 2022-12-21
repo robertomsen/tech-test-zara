@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+### Prueba tecnica ZARA - Frontend)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Para el desarrollo de la prueba, se ha utilizado React 18.
 
-## Available Scripts
+Cambios a futuro (por falta de tiempo):
 
-In the project directory, you can run:
+- Utilizar Redux o Context API para generar una store y guardar el listado de podcast y los episodios (actualmente utilizo localStorage por simplicidad)
+- Sacar el fetch a un helper, para mejorar la legibilidad.
+- Implementar un componente de la Card Info cuando entras a un podcast, de este modo, no se reutiliza código en la vista del episodio seleccionado.
+- Se ha realizado la comprobación de una vez al día solo en la primera llamada, en las demás, no.
+
+## Scripts disponibles
+
+En la raiz del directorio, puedes realizar los siguientes comandos:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Lanza la aplicación en modo development \
+Abre [http://localhost:3000](http://localhost:3000) para verlo en el navegador.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Buildea la aplicación para produción en la carpeta `build`.\
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Para probar el build, sería necesario levantarlo en un servidor estático, para ello instalamos `serve`.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+`npm i -g serve`
 
-### `npm run eject`
+y lo lanzamos con:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+`serve -s build`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Como se ha utilizado create-react-app, esta funcionalidad ya venía.
+Para realizar este paso, habría utilizado webpack.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Para el modo development, no habría hecho falta nada, ya que es sin minificar ni concatenar.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Para el modo production, habría utilizado `UglifyJSPlugin` para minimizar los assets y `CommonsChunkPlugin` para concatenarlos.
 
-## Learn More
+## Librerias utilizadas
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Se ha utilizado `eslint` con la guía de estilos de Airbnb para el linter.
+Se ha utilizado `prettier` para la gestión de errores de código y buenas practicas.

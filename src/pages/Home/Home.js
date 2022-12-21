@@ -8,21 +8,30 @@ function Home() {
   useEffect(() => {
     async function fetchData() {
       const lastFetchTime = localStorage.getItem('lastFetchTime');
-      if (lastFetchTime && Date.now() - lastFetchTime < 86400000 && lastFetchTime !== null) {
+      if (
+        lastFetchTime &&
+        Date.now() - lastFetchTime < 86400000 &&
+        lastFetchTime !== null
+      ) {
         const storedData = localStorage.getItem('apiData');
         if (storedData) {
           console.log(JSON.parse(storedData));
           setData(JSON.parse(storedData));
         }
       } else {
-        const response = await fetch('https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json');
+        const response = await fetch(
+          'https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json'
+        );
         const json = await response.json();
         const JSONParsedData = JSON.stringify(json);
         const JSONParsedTwo = JSON.parse(JSONParsedData);
 
         setData(JSONParsedTwo.feed.entry);
         console.log(JSONParsedTwo);
-        localStorage.setItem('apiData', JSON.stringify(JSONParsedTwo.feed.entry));
+        localStorage.setItem(
+          'apiData',
+          JSON.stringify(JSONParsedTwo.feed.entry)
+        );
         localStorage.setItem('lastFetchTime', Date.now());
       }
     }
@@ -34,7 +43,11 @@ function Home() {
     const storedData = localStorage.getItem('apiData');
     const JSONParsedData = JSON.parse(storedData);
 
-    const filteredArray = JSONParsedData.filter((item) => item['im:artist'].label.toLowerCase().includes(e.target.value) || item['im:name'].label.toLowerCase().includes(e.target.value));
+    const filteredArray = JSONParsedData.filter(
+      (item) =>
+        item['im:artist'].label.toLowerCase().includes(e.target.value) ||
+        item['im:name'].label.toLowerCase().includes(e.target.value)
+    );
     setData([...filteredArray]);
   };
 
@@ -42,7 +55,11 @@ function Home() {
     <>
       <div id="podcast__filter">
         <p>{data.length}</p>
-        <input type="text" placeholder="Filter podcasts..." onChange={(e) => filterPodcast(e)} />
+        <input
+          type="text"
+          placeholder="Filter podcasts..."
+          onChange={(e) => filterPodcast(e)}
+        />
       </div>
       <div id="podcast__list">
         {data?.map((item) => (
